@@ -7,8 +7,9 @@ create table LIBRARY_BRANCH (
 	Address varchar(100) not null
 );
 
+
 create table PUBLISHER (
-	PublisherName varchar(100) primary key not null,
+	PublisherName varchar(50) primary key not null,
 	Address varchar(100) not null,
 	Phone varchar(30) not null
 );
@@ -16,7 +17,7 @@ create table PUBLISHER (
 create table BOOKS (
 	BookID int primary key not null identity (200, 1),
 	Title varchar(50) not null unique,
-	Publisher_Name varchar(100) not null constraint fk_PublisherName foreign key references PUBLISHER(PublisherName) on update cascade on delete cascade
+	Publisher_Name varchar(50) not null constraint fk_PublisherName foreign key references PUBLISHER(PublisherName) on update cascade on delete cascade
 );
 
 
@@ -60,6 +61,7 @@ insert into PUBLISHER
 	(PublisherName, Address, Phone)
 	values
 	('Hachette Livre', '221B Bakers Street', '615-374-1937'),
+	('HarperCollins', '5269 Holly Ave', '736-836-9936'),
 	('Bloomsbury Publishing', '891 Wallingford Ave', '206-186-2836'),
 	('Macmillian Publishers', '718 121st Lane', '253-137-1937'),
 	('Simon & Schuster', '2837 N 156th Place', '775-863-3862'),
@@ -67,11 +69,11 @@ insert into PUBLISHER
 ;
 
 insert into BOOKS
-	(Title, Publisher_Name)
+	(Title, PublisherName)
 	values
 	('The Lost Tribe', 'Macmillian Publishers'),
 	('IT', 'Simon & Schuster'),
-	('The Green Mile', 'Simon & Schuster'),/*Steven King*/ 
+	('The Green Mile', 'Simon & Schuster'),
 	('Pet Sematary', 'Simon & Schuster'),
 	('The Shining', 'Simon & Schuster'),
 	('Carrie', 'Simon & Schuster'),
@@ -92,5 +94,6 @@ insert into BOOKS
 	('Harry Potter and the Half Blood Prince', 'Bloomsbury Publishing'),
 	('Harry Potter and the Deathly Hallows', 'Bloomsbury Publishing')
 ;
+select * from LIBRARY_BRANCH;
 select * from PUBLISHER;
 select * from BOOKS;

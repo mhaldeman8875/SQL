@@ -1,4 +1,4 @@
-use LibraryManagementSystem_TEST
+use LibraryManagementSystem
 
 go
 create proc dbo.TheLostTribe_Sharpstown_Copies

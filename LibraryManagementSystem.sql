@@ -1,5 +1,4 @@
-use LibraryManagementSystem_Test
-
+Use LibraryManagementSystem
 /*create tables*/
 create table LIBRARY_BRANCH (
 	BranchID int primary key not null identity (100,1),
@@ -7,14 +6,11 @@ create table LIBRARY_BRANCH (
 	Address varchar(100) not null
 );
 
-
 create table PUBLISHER (
 	PublisherName varchar(50) primary key not null,
 	Address varchar(100) not null,
 	Phone varchar(30) not null
 );
-
-drop table PUBLISHER
 
 create table BOOKS (
 	BookID int primary key not null identity (200, 1),
@@ -22,14 +18,12 @@ create table BOOKS (
 	PublisherName varchar(50) not null constraint fk_PublisherName foreign key references PUBLISHER(PublisherName) on update cascade on delete cascade
 );
 
-drop table BOOKS
 
 create table BOOK_AUTHORS (
 	BookID int not null constraint fk_BookID foreign key references BOOKS(BookID) on update cascade on delete cascade,
 	AuthorName varchar(50) not null
 );
 
-drop table BOOK_AUTHORS
 
 create table BOOK_COPIES (
 	BookID varchar(50) not null constraint fk_Title foreign key references BOOKS(Title) on update cascade on delete cascade,
@@ -37,7 +31,6 @@ create table BOOK_COPIES (
 	NumberOfCopies int not null
 );
 
-drop table BOOK_COPIES
 
 create table BORROWER (
 	CardNo int primary key not null identity (7264502,1),
@@ -46,7 +39,6 @@ create table BORROWER (
 	Phone varchar(30) not null
 );
 
-drop table BORROWER
 
 create table BOOK_LOANS	(
 	BookID varchar(50) not null constraint fk_BookTitle foreign key references BOOKS(Title) on update cascade on delete cascade,
@@ -56,7 +48,6 @@ create table BOOK_LOANS	(
 	DateDue date
 );
 
-drop table BOOK_LOANS
 GO
 
 /*Populate Tables*/
@@ -195,7 +186,10 @@ insert into BORROWER
 	('Cheryl Bonners', '896 2nd Lane', '206-737-7254'),
 	('Amy MacIntosh', '321 1st Lane', '206-591-4432'),
 	('William Sparks', '519 N 11th Court', '206-491-4050'),
-	('Joshua Adams', '672 3rd Place', '206-382-0956')
+	('Joshua Adams', '672 3rd Place', '206-382-0956'),
+	('Matt Smith', '2937 Holly Street', '426-362-3962'),
+	('Holly Beets', '2732 Green Lane', '725-483-7390'),
+	('Hap Wall', '12A Petrovitsky Road', '425-268-2839') 
 ;
 
 insert into BOOK_LOANS
@@ -253,11 +247,3 @@ insert into BOOK_LOANS
 	('Harry Potter and the Deathly Hallows', 103, 7264509, GETDATE(), 2019-6-6)
 ;
 
-
-select * from LIBRARY_BRANCH;
-select * from PUBLISHER;
-select * from BOOKS;
-select * from BOOK_AUTHORS;
-select * from BOOK_COPIES;
-select * from BORROWER;
-select * from BOOK_LOANS;

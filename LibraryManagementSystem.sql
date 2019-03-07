@@ -2,7 +2,7 @@ Use LibraryManagementSystem
 /*create tables*/
 create table LIBRARY_BRANCH (
 	BranchID int primary key not null identity (100,1),
-	BranchName varchar(50) not null,
+	BranchName varchar(50) unique,
 	Address varchar(100) not null
 );
 

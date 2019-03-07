@@ -27,10 +27,10 @@ install the .BAK file
 
 ```
 
-1. Right click **Databases** on left pane (Object Explorer)
-2. Click **Restore Database...**
-3. Choose **Device**, click "..." and add your **.bak** file
-4. Click **OK**, then **OK** again
+1. Right click Databases on left pane (Object Explorer)
+2. Click Restore Database...
+3. Choose Device, click "..." and add your .bak file
+4. Click OK, then **OK** again
 
 ```
 
